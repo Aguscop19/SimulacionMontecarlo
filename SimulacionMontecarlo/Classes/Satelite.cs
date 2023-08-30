@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace SimulacionMontecarlo.Classes
 {
-    // Supongamos que tenemos un satelite, que para su funcionamiento depende de que al menos 2 paneles solares de los 5 que tiene disponibles esten funcionando. y queremos calcular Phi la vida util esperada del satelite (El tiempo promedio de funcionamiento hasta que falla,  usualmente conocido en la literatura como MTTF).
-
-//Supongamos que cada panel solar tiene una vida util que es aleatoria y esta uniformemente distribuida en el rango [1000hrs,5000hs] (Valor promedio 3000)
-
-// Para estimar por Monte Carlo el valor de Phi, haremos n experimentos, cada uno de los cuales consistira en sortear el tiempo de falla de cada uno de los paneles solares del satelite y observar cual es el momento en el cual han fallado 4 de los mismos, esta variable aleatoria cuya esperanza es el tiempo promedio de funcionamiento del satelite.
-
-// El valor promedio de las n observaciones nos proporcionara una estimacion de Phi.
+   // Supongamos que tenemos un satelite, que para su funcionamiento depende de que al menos 2 paneles solares de los 5
+   // que tiene disponibles esten funcionando. y queremos calcular Phi la vida util esperada del satelite (El tiempo
+   // promedio de funcionamiento hasta que falla,  usualmente conocido en la literatura como MTTF).
+    //Supongamos que cada panel solar tiene una vida util que es aleatoria y esta uniformemente distribuida en el rango
+    //[1000hrs,5000hs] (Valor promedio 3000). Para estimar por Monte Carlo el valor de Phi, haremos n experimentos,
+    //cada uno de los cuales consistira en sortear el tiempo de falla de cada uno de los paneles solares del satelite y
+    //observar cual es el momento en el cual han fallado 4 de los mismos, esta variable aleatoria cuya esperanza es el
+    //tiempo promedio de funcionamiento del satelite. El valor promedio de las n observaciones nos proporcionara
+    //una estimacion de Phi.
 
 // Codigo:
 
