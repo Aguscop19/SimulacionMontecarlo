@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +23,7 @@ namespace SimulacionMontecarlo.Classes
     // Codigo:
 
     // Definimos una clase que represente un panel solar
-    internal class PanelSolar
+    public class PanelSolar
     {
 
         public int vidaUtil;
@@ -46,7 +48,7 @@ namespace SimulacionMontecarlo.Classes
         }
     }
 
-    internal class Satelite
+    public class Satelite
     {
 
         // Definimos los atributos
@@ -118,7 +120,7 @@ namespace SimulacionMontecarlo.Classes
         }
 
         // Funcion para obtener el conteo
-        public int[,] getConteo()
+        public int [,] getConteo()
         {
             return conteo;
         }
@@ -141,6 +143,14 @@ namespace SimulacionMontecarlo.Classes
             Console.WriteLine("El promedio de vida util del satelite es: " + promedioFinal);
         }
 
+        //Funcion para obtener los promedios en una lista
+        public List <int> getListaPromedios()
+        {
+            int [] promedios  = getPromedios();
 
+            List<int> lista = promedios.ToList();
+
+            return lista;
+        } 
     }
 }
