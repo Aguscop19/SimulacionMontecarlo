@@ -83,7 +83,7 @@ namespace SimulacionMontecarlo.Classes
         }
 
         // Metodo que realiza los experimentos
-        public int experimentos()
+        public void experimentos()
         {
             // Creamos un contador de experimentos
             int cont = 0;
@@ -115,7 +115,6 @@ namespace SimulacionMontecarlo.Classes
                 promedioFinal += promedios[i];
             }
             promedioFinal /= this.numPaneles;
-            return promedioFinal;
         }
 
         // Funcion para obtener el conteo
@@ -128,6 +127,12 @@ namespace SimulacionMontecarlo.Classes
         public int[] getPromedios()
         {
             return promedios;
+        }
+
+        // Funcion para obtener el promedio final
+        public int getPromedioFinal()
+        {
+            return promedioFinal;
         }
 
         // Metodo que imprime los resultados
