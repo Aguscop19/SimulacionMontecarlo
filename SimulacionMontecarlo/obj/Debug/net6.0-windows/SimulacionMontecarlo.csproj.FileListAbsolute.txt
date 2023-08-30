@@ -1,0 +1,16 @@
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\bin\Debug\net6.0-windows\SimulacionMontecarlo.exe
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\bin\Debug\net6.0-windows\SimulacionMontecarlo.deps.json
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\bin\Debug\net6.0-windows\SimulacionMontecarlo.runtimeconfig.json
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\bin\Debug\net6.0-windows\SimulacionMontecarlo.dll
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\bin\Debug\net6.0-windows\SimulacionMontecarlo.pdb
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.Form1.resources
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.csproj.GenerateResource.cache
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.AssemblyInfoInputs.cache
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.AssemblyInfo.cs
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.csproj.CoreCompileInputs.cache
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.dll
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\refint\SimulacionMontecarlo.dll
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.pdb
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\SimulacionMontecarlo.genruntimeconfig.cache
+C:\Users\agust\OneDrive\Escritorio\Montecarlos\SimulacionMontecarlo\obj\Debug\net6.0-windows\ref\SimulacionMontecarlo.dll

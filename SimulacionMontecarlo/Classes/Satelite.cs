@@ -33,8 +33,8 @@ namespace SimulacionMontecarlo.Classes
             // Generamos un numero aleatorio entre min y max
             Random rnd = new Random();
             vidaUtil = rnd.Next(min, max);
-            this.min = min;
-            this.max = max;
+            this.min = min; //1000
+            this.max = max; //5000
         }
 
         public int getVidaUtil()

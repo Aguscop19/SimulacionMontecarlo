@@ -29,24 +29,77 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            button1 = new Button();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(399, 37);
+            label1.Location = new Point(27, 43);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(102, 25);
+            label1.Size = new Size(170, 41);
             label1.TabIndex = 0;
             label1.Text = "Montecarlo";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(393, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(357, 41);
+            label2.TabIndex = 1;
+            label2.Text = "Cantidad de simulaciones";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(393, 119);
+            label3.Name = "label3";
+            label3.Size = new Size(217, 41);
+            label3.TabIndex = 2;
+            label3.Text = "Promedio Final";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1192, 65);
+            button1.Name = "button1";
+            button1.Size = new Size(299, 121);
+            button1.TabIndex = 3;
+            button1.Text = "Simulacion:";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(797, 43);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(250, 47);
+            textBox1.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(797, 139);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(250, 47);
+            textBox2.TabIndex = 5;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1020, 432);
+            ClientSize = new Size(1734, 708);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(button1);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -56,5 +109,10 @@
         #endregion
 
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Button button1;
+        private TextBox textBox1;
+        private TextBox textBox2;
     }
 }
