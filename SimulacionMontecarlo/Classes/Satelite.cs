@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SimulacionMontecarlo.Classes
 {
-   // Supongamos que tenemos un satelite, que para su funcionamiento depende de que al menos 2 paneles solares de los 5
-   // que tiene disponibles esten funcionando. y queremos calcular Phi la vida util esperada del satelite (El tiempo
-   // promedio de funcionamiento hasta que falla,  usualmente conocido en la literatura como MTTF).
+    // Supongamos que tenemos un satelite, que para su funcionamiento depende de que al menos 2 paneles solares de los 5
+    // que tiene disponibles esten funcionando. y queremos calcular Phi la vida util esperada del satelite (El tiempo
+    // promedio de funcionamiento hasta que falla,  usualmente conocido en la literatura como MTTF).
     //Supongamos que cada panel solar tiene una vida util que es aleatoria y esta uniformemente distribuida en el rango
     //[1000hrs,5000hs] (Valor promedio 3000). Para estimar por Monte Carlo el valor de Phi, haremos n experimentos,
     //cada uno de los cuales consistira en sortear el tiempo de falla de cada uno de los paneles solares del satelite y
@@ -18,33 +18,33 @@ namespace SimulacionMontecarlo.Classes
 
     //BLITZCRANK ES UN ROBOT
 
-// Codigo:
+    // Codigo:
 
-// Definimos una clase que represente un panel solar
+    // Definimos una clase que represente un panel solar
     internal class PanelSolar
+    {
+
+        public int vidaUtil;
+        public int min;
+        public int max;
+        // Constructor
+        public PanelSolar(int min, int max)
         {
-
-            public int vidaUtil;
-            public int min;
-            public int max;
-            // Constructor
-            public PanelSolar(int min, int max)
-            {
-                // Generamos un numero aleatorio entre min y max
-                Random rnd = new Random();
-                vidaUtil = rnd.Next(min, max);
-                this.min = min;
-                this.max = max;
-            }
-
-            public int getVidaUtil()
-            {
-                // Volvemos a generar un numero aleatorio
-                Random rnd = new Random();
-                vidaUtil = rnd.Next(min, max);
-                return vidaUtil;
-            }
+            // Generamos un numero aleatorio entre min y max
+            Random rnd = new Random();
+            vidaUtil = rnd.Next(min, max);
+            this.min = min;
+            this.max = max;
         }
+
+        public int getVidaUtil()
+        {
+            // Volvemos a generar un numero aleatorio
+            Random rnd = new Random();
+            vidaUtil = rnd.Next(min, max);
+            return vidaUtil;
+        }
+    }
 
     internal class Satelite
     {
@@ -55,22 +55,31 @@ namespace SimulacionMontecarlo.Classes
         public PanelSolar[] paneles;
         public int[] promedios;
         public int promedioFinal;
+        public int numPaneles;
+        public int min;
+        public int max;
         // Creamos el constructor que guarda el numero de experimentos
-        public Satelite(int numExperimentos)
+        public Satelite(int numExperimentos, int max, int min, int numPaneles)
         {
             this.numExperimentos = numExperimentos;
             // Creamos el conteo de experimetnos como una matriz
-            this.conteo = new int[numExperimentos, 5];
+            this.conteo = new int[numExperimentos, numPaneles];
             // Creamos 5 paneles solares
-            this.paneles = new PanelSolar[5];
+            this.paneles = new PanelSolar[numPaneles];
+            // Guardamos el numero de paneles
+            this.numPaneles = numPaneles;
+            // Guardamos el minimo y el maximo
+            this.min = min;
+            this.max = max;
             // Inicializamos los paneles solares
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < numPaneles; i++)
             {
-                this.paneles[i] = new PanelSolar(1000, 5000);
+                this.paneles[i] = new PanelSolar(min, max);
             }
             // Inicializamos los promedios
-            this.promedios = new int[5];
-
+            this.promedios = new int[numPaneles];
+            // Inicializamos el promedio final
+            this.promedioFinal = 0;
         }
 
         // Metodo que realiza los experimentos
@@ -81,31 +90,31 @@ namespace SimulacionMontecarlo.Classes
             while (cont < this.numExperimentos)
             {
                 // Creamos un ciclo que recorra los paneles
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < this.numPaneles; i++)
                 {
                     conteo[cont, i] = paneles[i].getVidaUtil();
                 }
                 cont++;
             }
             // Promediamos los resultados
-            int[] promedios = new int[5];
+            int[] promedios = new int[this.numPaneles];
             // Creamos un ciclo que recorra los experimentos
             for (int i = 0; i < this.numExperimentos; i++)
             {
                 // Creamos un ciclo que recorra los paneles
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < this.numPaneles; j++)
                 {
                     promedios[j] += conteo[i, j];
                 }
             }
             // Creamos un ciclo que recorra los paneles
             promedioFinal = 0;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < this.numPaneles; i++)
             {
                 promedios[i] /= this.numExperimentos;
                 promedioFinal += promedios[i];
             }
-            promedioFinal /= 5;
+            promedioFinal /= this.numPaneles;
             return promedioFinal;
         }
 
@@ -126,7 +135,7 @@ namespace SimulacionMontecarlo.Classes
         {
             Console.WriteLine("El promedio de vida util del satelite es: " + promedioFinal);
         }
-    }
-    
 
+
+    }
 }
