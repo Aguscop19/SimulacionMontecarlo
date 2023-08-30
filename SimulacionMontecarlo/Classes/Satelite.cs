@@ -16,6 +16,8 @@ namespace SimulacionMontecarlo.Classes
     //tiempo promedio de funcionamiento del satelite. El valor promedio de las n observaciones nos proporcionara
     //una estimacion de Phi.
 
+    //BLITZCRANK ES UN ROBOT
+
 // Codigo:
 
 // Definimos una clase que represente un panel solar
