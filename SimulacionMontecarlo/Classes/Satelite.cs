@@ -99,22 +99,21 @@ namespace SimulacionMontecarlo.Classes
                 cont++;
             }
             // Promediamos los resultados
-            int[] promedios = new int[this.numPaneles];
             // Creamos un ciclo que recorra los experimentos
             for (int i = 0; i < this.numExperimentos; i++)
             {
                 // Creamos un ciclo que recorra los paneles
                 for (int j = 0; j < this.numPaneles; j++)
                 {
-                    promedios[j] += conteo[i, j];
+                    this.promedios[j] += conteo[i, j];
                 }
             }
             // Creamos un ciclo que recorra los paneles
             promedioFinal = 0;
             for (int i = 0; i < this.numPaneles; i++)
             {
-                promedios[i] /= this.numExperimentos;
-                promedioFinal += promedios[i];
+                this.promedios[i] /= this.numExperimentos;
+                promedioFinal += this.promedios[i];
             }
             promedioFinal /= this.numPaneles;
         }
