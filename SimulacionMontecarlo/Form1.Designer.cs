@@ -43,6 +43,7 @@
             label6 = new Label();
             textBox6 = new TextBox();
             label7 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1192, 65);
+            button1.Location = new Point(1078, 60);
             button1.Name = "button1";
             button1.Size = new Size(299, 121);
             button1.TabIndex = 3;
@@ -177,11 +178,22 @@
             label7.Text = "Desviacion estandar";
             label7.Click += label7_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(1433, 60);
+            button2.Name = "button2";
+            button2.Size = new Size(299, 121);
+            button2.TabIndex = 15;
+            button2.Text = "Descargar Excel";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1734, 708);
+            Controls.Add(button2);
             Controls.Add(textBox6);
             Controls.Add(label7);
             Controls.Add(textBox5);
@@ -221,5 +233,6 @@
         private Label label6;
         private TextBox textBox6;
         private Label label7;
+        private Button button2;
     }
 }

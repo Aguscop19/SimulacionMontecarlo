@@ -49,7 +49,7 @@ namespace SimulacionMontecarlo
             List<int> listaP = listaPromedios.ToList();
             llenarGrid(listaP);
 
-            
+
 
         }
 
@@ -74,6 +74,35 @@ namespace SimulacionMontecarlo
 
         }
 
+        public void DescargaExcel(DataGridView data)
+        {
+            Microsoft.Office.Interop.Excel.Application exportarExcel = new Microsoft.Office.Interop.Excel.Application();
+            exportarExcel.Application.Workbooks.Add(true);
+            int indiceColumna = 0;
+            // Paso 1: Construyes columnas
+            foreach (DataGridViewColumn columna in data.Columns)
+            {
+                indiceColumna++;
+                exportarExcel.Cells[1, indiceColumna] = columna.HeaderText;
+            }
+            // Paso 2: Construyes filas
+            int indiceFilas = 0;
+
+            foreach (DataGridViewRow fila in data.Rows)
+            {
+                indiceFilas++;
+                indiceColumna = 0;
+                foreach (DataGridViewColumn columna in data.Columns)
+                {
+                    indiceColumna++;
+                    exportarExcel.Cells[indiceFilas + 1, indiceColumna] = fila.Cells[columna.Name].Value;
+                }
+            }
+            // Paso 3: visibilidad
+            exportarExcel.Visible = true;
+        }
+
+
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -86,6 +115,11 @@ namespace SimulacionMontecarlo
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DescargaExcel(dataGridView1);
         }
     }
 }
