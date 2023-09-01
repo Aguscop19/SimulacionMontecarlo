@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
@@ -142,14 +143,18 @@ namespace SimulacionMontecarlo.Classes
             Console.WriteLine("El promedio de vida util del satelite es: " + promedioFinal);
         }
 
-        //Funcion para obtener los promedios en una lista
-        public List <int> getListaPromedios()
+        // Funcion para obtener la desviacion estandar de los promedios finales
+        public double CalcularDesviacionEstandar()
         {
-            int [] promedios  = getPromedios();
+            double suma = 0;
+            for (int i = 0; i < this.promedios.Length; i++) 
+            {
+                suma = Math.Pow(this.promedios[i] - this.promedioFinal, 2)+suma;
+            }
+            double desvesta = Math.Sqrt(suma/ this.promedios.Length-1);
 
-            List<int> lista = promedios.ToList();
+            return desvesta;
+        }
 
-            return lista;
-        } 
     }
 }

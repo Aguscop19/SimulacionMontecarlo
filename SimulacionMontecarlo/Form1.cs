@@ -14,7 +14,10 @@ namespace SimulacionMontecarlo
         private void button1_Click(object sender, EventArgs e)
         {
             // Paso 0: Condicíon de vacío
-            if (textBox1.Text.Equals(""))
+            if (textBox1.Text.Equals("") ||
+                (textBox3.Text.Equals("")) ||
+                (textBox4.Text.Equals("")) ||
+                (textBox5.Text.Equals("")))
             {
                 MessageBox.Show("Los números tienen que ser MAYOR que cero, NO VACÍOS");
                 return;
@@ -22,25 +25,37 @@ namespace SimulacionMontecarlo
             }
             // Paso 1: Inicialización de parámetros
             int numSimulacion = Convert.ToInt32(textBox1.Text);
+            int LimInf = Convert.ToInt32(textBox3.Text);
+            int LimMax = Convert.ToInt32(textBox4.Text);
+            int numPan = Convert.ToInt32(textBox5.Text);
+
 
             // Paso 2: Declarar clase Satelite
-            Satelite SatelitesSimulados = new Satelite(numSimulacion, 5000, 1000, 5);
+            Satelite SatelitesSimulados = new Satelite(numSimulacion, LimMax, LimInf, numPan);
             // Paso 3: Llamar método principal
             SatelitesSimulados.experimentos();
 
+            //Se imprime el promedio
             string promedio = Convert.ToString(SatelitesSimulados.getPromedioFinal());
 
             textBox2.Text = promedio;
 
+            //Se imprime la desviacion estandar
+            string desvesta = Convert.ToString(SatelitesSimulados.CalcularDesviacionEstandar());
+            textBox6.Text = desvesta;
+
+            //Se llena en datagrid
             int[] listaPromedios = SatelitesSimulados.getPromedios();
-            List <int> listaP = listaPromedios.ToList();
+            List<int> listaP = listaPromedios.ToList();
             llenarGrid(listaP);
-       
+
+            
+
         }
 
-        public void llenarGrid(List <int> lista)
+        public void llenarGrid(List<int> lista)
         {
-            
+
             string numeroColumna1 = "1";
             string numeroColumna2 = "2";
 
@@ -57,6 +72,20 @@ namespace SimulacionMontecarlo
             }
 
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
