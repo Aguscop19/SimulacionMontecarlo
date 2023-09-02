@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulacionMontecarlo", "SimulacionMontecarlo.csproj", "{9863B9A8-3B27-4DEB-B8D7-8A560E387A66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacionMontecarlo", "SimulacionMontecarlo.csproj", "{9863B9A8-3B27-4DEB-B8D7-8A560E387A66}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MonteCarloSatelites", "..\MonteCarloSatelites\MonteCarloSatelites.vdproj", "{926C9077-1D71-4F33-8822-07FF2E99C0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{9863B9A8-3B27-4DEB-B8D7-8A560E387A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9863B9A8-3B27-4DEB-B8D7-8A560E387A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9863B9A8-3B27-4DEB-B8D7-8A560E387A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{926C9077-1D71-4F33-8822-07FF2E99C0A4}.Debug|Any CPU.ActiveCfg = Debug
+		{926C9077-1D71-4F33-8822-07FF2E99C0A4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
