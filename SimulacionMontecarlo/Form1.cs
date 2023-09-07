@@ -1,3 +1,4 @@
+using Microsoft.Office.Interop.Excel;
 using SimulacionMontecarlo.Classes;
 using System;
 using System.Windows.Forms;
@@ -45,30 +46,42 @@ namespace SimulacionMontecarlo
             textBox6.Text = desvesta;
 
             //Se llena en datagrid
-            int[] listaPromedios = SatelitesSimulados.getPromedios();
-            List<int> listaP = listaPromedios.ToList();
+
+
+            
+            int[,] listaP = SatelitesSimulados.getConteo();
+            
             llenarGrid(listaP);
 
 
 
         }
 
-        public void llenarGrid(List<int> lista)
+        public void llenarGrid(int[,] lista)
         {
-
-            string numeroColumna1 = "1";
-            string numeroColumna2 = "2";
-
+            int rows = lista.GetLength(0);
+            int columns = lista.GetLength(1);
 
             dataGridView1.Columns.Clear();
-            dataGridView1.Columns.Add(numeroColumna1, "Satelite");
-            dataGridView1.Columns.Add(numeroColumna2, "Promedio");
 
-            for (int i = 0; i < lista.Count; i++)
+            // Agrega las columnas al DataGridView
+            for (int i = 0; i < columns; i++)
             {
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna1) - 1].Value = (i + 1).ToString();
-                dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna2) - 1].Value = lista[i].ToString();
+                dataGridView1.Columns.Add("Column", "Satelite " + (i+1));
+            }
+
+            // Agrega las filas al DataGridView
+            for (int i = 0; i < rows; i++)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(dataGridView1);
+
+                for (int j = 0; j < columns; j++)
+                {
+                    row.Cells[j].Value = lista[i, j];
+                }
+
+                dataGridView1.Rows.Add(row);
             }
 
 
